@@ -9,12 +9,11 @@ from ropod.utils.uuid import generate_uuid
 from ropod.utils.timestamp import TimeStamp
 
 
-class RobotTask(object):
-    def __init__(self):
-        self.earliest_start_time = -1.
-        self.latest_start_time = -1.
-        self.estimated_end_time = -1.
-        self.priority = 0
+class TaskPriority:
+    EMERGENCY = 0
+    HIGH = 1
+    NORMAL = 2
+    LOW = 3
 
 
 class TaskRequest(object):
@@ -86,13 +85,6 @@ class TaskRequest(object):
         """
         to_csv_dict = flatten_dict(task_dict)
         return to_csv_dict
-
-
-class TaskPriority:
-    EMERGENCY = 0
-    HIGH = 1
-    NORMAL = 2
-    LOW = 3
 
 
 class Task(object):
@@ -322,30 +314,3 @@ class Task(object):
             return True
         else:
             return False
-
-
-class TaskConstraints(object):
-
-    @staticmethod
-    def relative_to_ztp(task, ztp, resolution):
-        """ Returns the temporal constraints (earliest_start_time, latest_start_time)
-        relative to a ZTP (zero timepoint)
-
-        Args:
-            task (Task): Task object
-            ztp (TimeStamp): Zero Time Point. Origin time to which task temporal information is referenced to
-            resolution (str): Resolution of the difference between the task temporal constraints
-                            and the ztp
-
-        Return: r_earliest_start_time (float): earliest start time relative to the ztp
-                r_latest_start_time (float): latest start time relative to the ztp
-        """
-        r_earliest_start_time = task.earliest_start_time.get_difference(ztp, resolution)
-        r_latest_start_time = task.latest_start_time.get_difference(ztp, resolution)
-
-        return r_earliest_start_time, r_latest_start_time
-
-
-
-
-
