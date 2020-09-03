@@ -16,6 +16,12 @@ class TaskPriority:
     LOW = 3
 
 
+class DisinfectionDose:
+    HIGH = 1
+    NORMAL = 2
+    LOW = 3
+
+
 class TaskRequest(object):
     def __init__(self, id=''):
         if not id:
