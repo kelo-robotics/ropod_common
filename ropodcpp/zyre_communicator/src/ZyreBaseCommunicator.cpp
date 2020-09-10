@@ -5,6 +5,8 @@
 #include <sstream>
 #include <tuple>
 #include <chrono>
+#define CEST (+2)
+
 
 ZyreBaseCommunicator::ZyreBaseCommunicator(const std::string &nodeName,
 		 const bool &printAllReceivedMessages,
@@ -601,7 +603,10 @@ std::string ZyreBaseCommunicator::getTimeStamp()
 {
 	time_t now;
     time(&now);
+    struct tm * ptm;
+    ptm = gmtime (&now);
+    ptm->tm_hour += CEST;
     char buffer[20];
-    strftime(buffer, 20, "%FT%TZ", gmtime(&now));
+    strftime(buffer, 20, "%FT%TZ", ptm);
     return std::string(buffer);
 }
