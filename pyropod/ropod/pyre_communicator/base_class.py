@@ -1,15 +1,15 @@
-import time
-import json
-import zmq
 import ast
+import json
 import logging
-from uuid import UUID
+import time
 from datetime import timedelta, datetime
+from uuid import UUID
+
+import zmq
+from pyre_base.base_class import PyreBase
+from ropod.utils.models import MessageFactoryBase
 from ropod.utils.timestamp import TimeStamp
 from ropod.utils.uuid import generate_uuid
-
-from pyre_base.base_class import PyreBase
-from ropod.utils.models import RopodMessageFactory
 
 ZYRE_SLEEP_TIME = 0.250  # type: float
 
@@ -28,7 +28,7 @@ class RopodPyre(PyreBase):
         :param extra_headers: a dictionary containing the additional headers
         """
         self.logger = logging.getLogger('RopodPyre')
-        self.mf = RopodMessageFactory()
+        self.mf = MessageFactoryBase()
 
         self.acknowledge = kwargs.get('acknowledge', False)
 
