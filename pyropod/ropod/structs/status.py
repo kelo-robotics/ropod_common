@@ -37,3 +37,15 @@ class TaskStatus:
     FAILED = 1   # Execution failed
     CANCELED = 9  # Canceled before execution started
     PREEMPTED = 10  # Canceled during execution
+
+
+class ElevatorRequestStatus:
+    PENDING = 0
+    ACCEPTED = 8
+    GOING_TO_START = 1
+    WAITING_FOR_ROBOT_IN = 2
+    GOING_TO_GOAL = 3
+    WAITING_FOR_ROBOT_OUT = 4
+    COMPLETED = 5
+    CANCELED = 6
+    FAILED = 7

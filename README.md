@@ -22,11 +22,3 @@ Then install the pyre base class:
 sudo pip3 install -e .
 ```
 
-### C++
-
-The C++ base class must be located in `/opt/ropod/`, the recommended way to do it is:
-
-```
-git clone git@git.ropod.org:ropod/ropod_common.git
-sudo mv ropod_common /opt/ropod/
-```
