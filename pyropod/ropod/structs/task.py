@@ -7,8 +7,8 @@ class TaskPriority:
 
 
 class DisinfectionDose:
-    HIGH = 1
+    HIGH = 3
     NORMAL = 2
-    LOW = 3
+    LOW = 1
 
 
