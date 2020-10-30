@@ -1,6 +1,8 @@
 
+from datetime import datetime, timedelta
+
 import dateutil.parser
-from datetime import timezone, datetime, timedelta
+import pytz
 
 
 class TimeStamp:
@@ -10,7 +12,7 @@ class TimeStamp:
         delta: Can be an object of type datetime.timedelta or TimeStamp
     """
 
-    def __init__(self, delta=None):
+    def __init__(self, tz=pytz.UTC, delta=None):
         """Constructor of the TimeStamp object.
 
         This creates an abstraction of a datetime.datetime.now() object
@@ -18,7 +20,7 @@ class TimeStamp:
         Args:
             delta (timedelta): A timedelta object to be added to datetime.now()
         """
-        self._time = datetime.now()
+        self._time = datetime.now(tz=tz)
         if delta is not None:
             self._time = self._time + delta
 
@@ -93,8 +95,13 @@ class TimeStamp:
             return result
 
     @classmethod
-    def from_datetime(cls, datetime):
+    def from_datetime(cls, datetime, tz="utc"):
         x = cls()
+        try:
+            datetime = pytz.timezone(tz).localize(datetime)
+        except ValueError:
+            # tzinfo is already set
+            pass
         x._time = datetime
         return x
 
