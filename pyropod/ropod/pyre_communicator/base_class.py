@@ -1,6 +1,7 @@
 import ast
 import json
 import logging
+from ropod.utils.logging.counter import ContextFilter
 import time
 from datetime import timedelta, datetime
 from uuid import UUID
@@ -27,7 +28,9 @@ class RopodPyre(PyreBase):
         :param ropod_uuid: a string containing the hexadecimal version of a nodes uuid
         :param extra_headers: a dictionary containing the additional headers
         """
-        self.logger = logging.getLogger('RopodPyre')
+        logger_name = kwargs.get("logger_name", "RopodPyre")
+        self.logger = logging.getLogger(logger_name)
+        self.logger.addFilter(ContextFilter())
         self.mf = MessageFactoryBase()
 
         self.acknowledge = kwargs.get('acknowledge', False)
