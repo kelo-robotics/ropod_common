@@ -33,6 +33,7 @@ class TaskStatus:
     DISPATCHED = 16  # The task has been sent to the robot
     ONGOING = 6
     COMPLETED = 2
+    OVERDUE = 3
     ABORTED = 8  # Aborted by the system, not by the user
     FAILED = 1   # Execution failed
     CANCELED = 9  # Canceled before execution started
