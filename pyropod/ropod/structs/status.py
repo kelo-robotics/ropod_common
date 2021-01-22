@@ -33,11 +33,11 @@ class TaskStatus:
     DISPATCHED = 16  # The task has been sent to the robot
     ONGOING = 6
     COMPLETED = 2
-    OVERDUE = 3
-    ABORTED = 8  # Aborted by the system, not by the user
+    OVERDUE = 3  # The task has temporal constraints in the past
+    ABORTED = 8  # The task is canceled after its execution started
     FAILED = 1   # Execution failed
     CANCELED = 9  # Canceled before execution started
-    PREEMPTED = 10  # Canceled during execution
+    DEPRECATED = 4  # Task has a deprecated format
 
 
 class ElevatorRequestStatus:
