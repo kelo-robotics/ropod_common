@@ -1,9 +1,9 @@
 
 class TaskPriority:
-    EMERGENCY = 0
-    HIGH = 1
+    EMERGENCY = 4
+    HIGH = 3
     NORMAL = 2
-    LOW = 3
+    LOW = 1
 
 
 class DisinfectionDose:
