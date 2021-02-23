@@ -67,6 +67,14 @@ class TimeStamp:
 
         self._time = value
 
+    @property
+    def utc_time(self):
+        return self._time.astimezone(pytz.UTC)
+
+    @property
+    def timezone_offset(self):
+        return self._time.utcoffset().total_seconds()/60
+
     def to_str(self):
         """Returns the timestamp as a string in ISO format"""
         return self._time.isoformat()
