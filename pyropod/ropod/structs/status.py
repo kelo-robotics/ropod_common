@@ -2,10 +2,11 @@
 class AvailabilityStatus:
     BUSY = 0  # Executing a task
     CHARGING = 1  # Recharging its battery
-    IDLE = 2  # Available (no task assigned at the moment)
-    FAILURE = 3  # Critical failure, robot can't recover
-    DEFECTIVE = 4  # Robot has a failure, but still functional. Requires maintenance
-    NO_COMMUNICATION = 5  # FMS has lost communication with the robot for more than 15 minutes?
+    IDLE = 2  # Available (do not executing a task)
+    FAILURE = 3  # Critical failure, can't recover
+    DEFECTIVE = 4  # Has a failure, but still functional. Requires maintenance
+    NO_COMMUNICATION = 5  # FMS has lost communication with the component
+    RESERVED = 6  # Useful for indicating that a charging station is reserved
 
 
 class ComponentStatus:
