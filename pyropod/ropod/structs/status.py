@@ -7,6 +7,7 @@ class AvailabilityStatus:
     DEFECTIVE = 4  # Has a failure, but still functional. Requires maintenance
     NO_COMMUNICATION = 5  # FMS has lost communication with the component
     RESERVED = 6  # Useful for indicating that a charging station is reserved
+    PAUSED = 7
 
 
 class ComponentStatus:
