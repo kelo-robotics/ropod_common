@@ -42,6 +42,13 @@ class TaskStatus:
     DEPRECATED = 4  # Task has a deprecated format
 
 
+class TaskRecoveryMethod:
+    RE_ALLOCATE = 1  # Applies before task execution began. The task's constraints and plan do not change.
+    RESUME = 2  # Applies after task execution began (continue task at a later time).
+                #  The earliest start time changes and the plan only includes remaining actions.
+    CANCEL = 3  # Applies before or after task execution began.
+
+
 class ElevatorRequestStatus:
     PENDING = 0
     ACCEPTED = 8
