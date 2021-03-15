@@ -14,5 +14,10 @@ setup(name='ropod-common',
                 'ropod.structs',
                 'ropod.utils',
                 'ropod.utils.logging',
-                ]
-     )
+                ],
+      install_requires=['PyYAML>=4.2b1',
+                        'pyzmq==17.1.2',
+                        'python-dateutil',
+                        'pytz',
+                        ],
+)
