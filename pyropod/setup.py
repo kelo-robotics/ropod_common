@@ -8,5 +8,11 @@ setup(name='ropod-common',
       author='Argentina Ortega Sainz',
       author_email='argentina.ortega@h-brs.de',
       maintainer='ROPOD',
-      packages=['ropod']
+      packages=['ropod',
+                'ropod.pyre_communicator',
+                'ropod.pyre_communicator.config',
+                'ropod.structs',
+                'ropod.utils',
+                'ropod.utils.logging',
+                ]
      )
