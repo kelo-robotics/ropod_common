@@ -114,6 +114,13 @@ class TimeStamp:
         return x
 
     @classmethod
+    def fromtimestamp(cls, timestamp, tz=pytz.UTC):
+        dt = datetime.fromtimestamp(timestamp, tz)
+        x = cls()
+        x._time = dt
+        return x
+
+    @classmethod
     def from_str(cls, iso_date):
         t = dateutil.parser.parse(iso_date)
         return cls.from_datetime(t)
