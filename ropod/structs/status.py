@@ -21,8 +21,10 @@ class ComponentStatus:
 
 class ActionStatus:
     PLANNED = 13
-    ONGOING = 6
-    COMPLETED = 2
+    WAITING = 4
+    INITIALIZING = 5
+    RUNNING = 6
+    FINISHED = 2
     FAILED = 1  # Execution failed
 
 
@@ -33,8 +35,8 @@ class TaskStatus:
     PLANNING_FAILED = 14
     SCHEDULED = 15  # Task is ready to be dispatched
     DISPATCHED = 16  # The task has been sent to the robot
-    ONGOING = 6
-    COMPLETED = 2
+    RUNNING = 6
+    FINISHED = 2
     OVERDUE = 3  # The task has temporal constraints in the past
     ABORTED = 8  # The task is canceled after its execution started
     FAILED = 1   # Execution failed
