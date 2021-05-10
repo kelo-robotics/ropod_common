@@ -115,10 +115,21 @@ class TimeStamp:
 
     @classmethod
     def fromtimestamp(cls, timestamp, tz=pytz.UTC):
-        dt = datetime.fromtimestamp(timestamp, tz)
+        try:
+            dt = datetime.fromtimestamp(timestamp, tz)
+        except ValueError as e:
+            print(e)
+            raise
         x = cls()
         x._time = dt
         return x
+
+    @staticmethod
+    def get_iso_date(timestamp, tz=pytz.UTC):
+        try:
+            return str(TimeStamp.fromtimestamp(timestamp, tz))
+        except ValueError:
+            return ""
 
     @classmethod
     def from_str(cls, iso_date):
